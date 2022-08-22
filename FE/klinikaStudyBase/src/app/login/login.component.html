@@ -1,0 +1,7 @@
+<div class="title">Bejelenkezés a Studybase appikációba</div>
+<div class="container">
+  <small *ngIf="invalidLogin">{{errorMessage}}</small>
+  Felhasznalo nev : <input type="text" name="username" [(ngModel)]="username">
+  Jelszó : <input type="password" name="password" [(ngModel)]="password">
+  <button class="btn btn-success" (click)=handleLogin()>Login</button>
+</div>
