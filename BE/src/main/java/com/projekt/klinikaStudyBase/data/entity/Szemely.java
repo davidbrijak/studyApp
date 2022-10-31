@@ -61,7 +61,15 @@ public class Szemely {
 			inverseJoinColumns = @JoinColumn(name = "SZEREPKOR_ID"))
 	private Set<Szerepkor> szerepkorok = new HashSet<>();
 
+	/*
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnore
+	private Set<Meres> meresek = new HashSet<>();*/
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "SZEMELY_SZEREPKOR_MERES_MAPPING",
+			joinColumns = @JoinColumn(name = "SZEMELY_ID"),
+			inverseJoinColumns = @JoinColumn(name = "SZEREPKOR_ID"))
 	private Set<Meres> meresek = new HashSet<>();
 }

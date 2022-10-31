@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {FizetesiPeriodus} from "../../fizetesi-periodus-list/fizetesi-periodus-list.component";
-import {FizetesCheckListDto} from "../../kifizetesek/kifizetesek.component";
 
 @Injectable({
   providedIn: 'root'

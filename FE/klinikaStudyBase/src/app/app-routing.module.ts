@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from "./login/login.component";
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {ErrorComponent} from "./error/error.component";
 import {SzerepkorListComponent} from "./szerepkor-list/szerepkor-list.component";
@@ -21,35 +20,34 @@ import {UjSzemelyComponent} from "./szemely/uj-szemely/uj-szemely.component";
 import {UjVizsgalatiModComponent} from "./vizsgalati-mod/uj-vizsgalati-mod/uj-vizsgalati-mod.component";
 import {KifizetesekComponent} from "./kifizetesek/kifizetesek.component";
 import {KifizetesDetailComponent} from "./kifizetesek/kifizetes-detail/kifizetes-detail.component";
-import {DokumentumokKezeleseComponent} from "./dokumentumok-kezelese/dokumentumok-kezelese.component";
 import {FileUploadComponentComponent} from "./file-upload-component/file-upload-component.component";
 import {SzemelyekListComponent} from "./szemelyek-list/szemelyek-list.component";
+import {LoginPageComponent} from "./login-page/login-page.component";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'welcome/:name', component: WelcomeComponent},
-  {path: '', component: LoginComponent},
-  {path: 'szerepkor/list', component: SzerepkorListComponent},
-  {path: 'szemely/new', component: UjSzemelyComponent},
-  {path: 'fizetesiPeriodus/list', component: FizetesiPeriodusListComponent},
-  {path: 'szervezet/list', component: SzervezetListComponent},
-  {path: 'szervezetTipus/list', component: SzervezetTipusListComponent},
-  {path: 'kifizetesek/list', component: KifizetesekComponent},
-  {path: 'szemelyek/list', component: SzemelyekListComponent},
-  {path: 'jogosultsag/list', component: JogosultsagListComponent},
-  {path: 'study/list', component: StudyComponent},
-  {path: 'vizsgalatiMod/list', component: VizsgalatiModComponent},
-  {path: 'szerepkor/new/:id/:isDisabled', component: UjSzerepkorComponent},
-  {path: 'kif/detail/:id', component: KifizetesDetailComponent},
-  {path: 'study/new/:id/:isDisabled', component: UjStudyComponent},
-  {path: 'szervezetTipus/new/:id/:isDisabled', component: UjSzervezetTipusComponent},
-  {path: 'ujMeres/new/:studyId/:id/:isDisabled', component: UjMeresComponent},
-  {path: 'szervezet/new/:id', component: UjSzervezetComponent},
-  {path: 'vm/new/:id', component: UjVizsgalatiModComponent},
-  {path: 'fizetesiPeriodus/new/:id/:isDisabled', component: UjFizetesiPeriodusComponent},
-  {path: 'jogosultsag/new/:id', component: UjJogosultsagComponent},
-  {path: 'dokumentumok/:id', component: FileUploadComponentComponent},
-  {path: '**', component: ErrorComponent}
+  {path: 'auth/login', component: LoginPageComponent},
+  {path: 'welcome', component: WelcomeComponent, canActivate: []},
+  {path: 'szerepkor/list', component: SzerepkorListComponent, canActivate: []},
+  {path: 'szemely/new', component: UjSzemelyComponent, canActivate: []},
+  {path: 'fizetesiPeriodus/list', component: FizetesiPeriodusListComponent, canActivate: []},
+  {path: 'szervezet/list', component: SzervezetListComponent, canActivate: []},
+  {path: 'szervezetTipus/list', component: SzervezetTipusListComponent, canActivate: []},
+  {path: 'kifizetesek/list', component: KifizetesekComponent, canActivate: []},
+  {path: 'szemelyek/list', component: SzemelyekListComponent, canActivate: []},
+  {path: 'jogosultsag/list', component: JogosultsagListComponent, canActivate: []},
+  {path: 'study/list', component: StudyComponent, canActivate: []},
+  {path: 'vizsgalatiMod/list', component: VizsgalatiModComponent, canActivate: []},
+  {path: 'szerepkor/new/:id/:isDisabled', component: UjSzerepkorComponent, canActivate: []},
+  {path: 'kif/detail/:id', component: KifizetesDetailComponent, canActivate: []},
+  {path: 'study/new/:id/:isDisabled', component: UjStudyComponent, canActivate: []},
+  {path: 'szervezetTipus/new/:id/:isDisabled', component: UjSzervezetTipusComponent, canActivate: []},
+  {path: 'ujMeres/new/:studyId/:id/:isDisabled', component: UjMeresComponent, canActivate: []},
+  {path: 'szervezet/new/:id', component: UjSzervezetComponent, canActivate: []},
+  {path: 'vm/new/:id', component: UjVizsgalatiModComponent , canActivate: []},
+  {path: 'fizetesiPeriodus/new/:id/:isDisabled', component: UjFizetesiPeriodusComponent, canActivate: []},
+  {path: 'jogosultsag/new/:id', component: UjJogosultsagComponent, canActivate: []},
+  {path: 'dokumentumok/:id', component: FileUploadComponentComponent, canActivate: []},
+  //{path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

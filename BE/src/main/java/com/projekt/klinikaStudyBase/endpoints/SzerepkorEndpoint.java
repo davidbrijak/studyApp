@@ -19,19 +19,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/szerepkor")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 public class SzerepkorEndpoint {
-
     private final SzerepkorService service;
 
     @Transactional
     @ApiOperation(value = "Uj szerepkor mentese.", notes = "Uj szerepkor mentese.")
     @PostMapping
-    public ResponseEntity<SzerepkorDetailDto> add(@RequestBody final SzerepkorDetailDto newSzerepkor) {
-        return ResponseEntity.ok(service.add(newSzerepkor));
+    public ResponseEntity<SzerepkorDetailDto> add(@RequestBody final SzerepkorDetailDto ujSzerepkor) {
+        return ResponseEntity.ok(service.add(ujSzerepkor));
     }
 
-    @ApiOperation(value = "Szerepekörök lekerese.", notes = "Szerepekörök lekerese.")
+    @ApiOperation(value = "Szerepkorok lekerese.", notes = "Szerepkorok lekerese.")
     @GetMapping(path = "/list")
     public ResponseEntity<List<SzerepkorDetailDto>> getAll() {
         return ResponseEntity.ok().body(service.findAll());

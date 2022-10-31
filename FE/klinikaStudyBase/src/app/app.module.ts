@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {WelcomeComponent} from './welcome/welcome.component';
-import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import {ErrorComponent} from './error/error.component';
@@ -47,12 +46,18 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
 import { DokumentumokKezeleseComponent } from './dokumentumok-kezelese/dokumentumok-kezelese.component';
 import { FileUploadComponentComponent } from './file-upload-component/file-upload-component.component';
 import { SzemelyekListComponent } from './szemelyek-list/szemelyek-list.component';
+import { LoginComponent } from './login/login.component';
+import { SubmitButtonComponent } from './submit-button/submit-button.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { LoginPageComponent } from './login-page/login-page.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {TranslateModule} from "@ngx-translate/core";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoginComponent,
     ErrorComponent,
     SzerepkorListComponent,
     MenuComponent,
@@ -79,29 +84,36 @@ import { SzemelyekListComponent } from './szemelyek-list/szemelyek-list.componen
     AlertModalComponent,
     DokumentumokKezeleseComponent,
     FileUploadComponentComponent,
-    SzemelyekListComponent
+    SzemelyekListComponent,
+    LoginComponent,
+    SubmitButtonComponent,
+    LoginPageComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        MatTableModule,
-        MatSortModule,
-        MatPaginatorModule,
-        NgSelectModule,
-        NgMultiSelectDropDownModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatCheckboxModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    NgSelectModule,
+    NgMultiSelectDropDownModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    TranslateModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

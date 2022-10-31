@@ -12,15 +12,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SzerepkorServiceImpl implements SzerepkorService {
-
     private final SzerepkorRepository szerepkorRepository;
     private final SzerepkorMapper szerepkorMapper;
 
     @Override
-    public SzerepkorDetailDto add(final SzerepkorDetailDto newSzerepkor) {
-        final var entity = szerepkorMapper.toEntity(newSzerepkor);
-        final var savedSzerepkor = szerepkorRepository.save(entity);
-        return szerepkorMapper.toDto(savedSzerepkor);
+    public SzerepkorDetailDto add(final SzerepkorDetailDto ujSzerepkor) {
+        final var entity = szerepkorMapper.toEntity(ujSzerepkor);
+        final var mentett = szerepkorRepository.save(entity);
+        return szerepkorMapper.toDto(mentett);
     }
 
     @Override

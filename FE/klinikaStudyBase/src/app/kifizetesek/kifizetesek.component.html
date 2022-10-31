@@ -29,4 +29,14 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5,10,20]" [pageSize]="5"></mat-paginator>
+  <label>Automatikus e-mail kiküldésének bekapcsolása.</label>
+  <div>
+      <input type="checkbox" id="switch"
+             class="checkbox" />
+      <label for="switch" class="toggle">
+        <p>off  on</p>
+      </label>
+  </div>
+
+  <br><br>
 </div>

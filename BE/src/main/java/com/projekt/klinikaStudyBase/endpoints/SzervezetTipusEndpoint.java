@@ -18,7 +18,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/szervezetTipus")
-@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class SzervezetTipusEndpoint {
 

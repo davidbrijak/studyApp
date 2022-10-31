@@ -23,6 +23,7 @@ public class User {
     private String felhasznaloNev;
     @Column
     private String jelszo;
+    private String email;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name ="USER_JOGOSULTSAG_MAPPING",

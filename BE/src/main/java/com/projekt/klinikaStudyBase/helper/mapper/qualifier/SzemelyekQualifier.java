@@ -27,6 +27,9 @@ public class SzemelyekQualifier {
 		if (szemelyId == null) {
 			return null;
 		}
+
+		Szemely foundSzemely = szemelyRepository.findById(szemelyId)
+				.orElse(null);
 		return szemelyRepository.findById(szemelyId)
 				.orElse(null);
 	}

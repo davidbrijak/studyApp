@@ -15,6 +15,10 @@ export class SzerepkorServiceService {
     return this.http.get<Szerepkor[]>(`http://localhost:8080/api/szerepkor/list`);
   }
 
+  hasAnySzemelyExistsBySzerepkor(id: number) {
+    return this.http.get<Boolean>(`http://localhost:8080/api/szemely/hasAnySzemelyBySzerepkor/${id}`);
+  }
+
   create(ujszerep: Szerepkor) {
     return this.http.post(
       `http://localhost:8080/api/szerepkor`,

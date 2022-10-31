@@ -49,7 +49,7 @@ export class UjSzemelyComponent implements OnInit {
         this.isSuccesSave = true;
         this.isSmthEmpty = true;
         this.error = 'A mentés sikeres volt.';
-        this.ngOnInit()
+        this.router.navigate(['szemelyek/list'])
       }
     )
   }

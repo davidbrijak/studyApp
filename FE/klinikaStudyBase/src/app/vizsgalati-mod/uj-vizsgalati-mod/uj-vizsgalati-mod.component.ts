@@ -15,7 +15,7 @@ export class UjVizsgalatiModComponent implements OnInit {
   vm: VizsgalatiModDetailDto;
   message: string;
   isSuccesSave: boolean;
-  title = 'Új fizetési periódus';
+  title = 'Új vizsgálati mód';
   isDisabled: boolean;
   error: string
   isSmthEmpty: boolean

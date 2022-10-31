@@ -33,3 +33,7 @@ select:required:invalid {
   border-color: #c00000;
   border-width: 3px;
 }
+
+h1 {
+  color: green;
+}

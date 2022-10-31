@@ -1,24 +1,18 @@
 package com.projekt.klinikaStudyBase.endpoints;
 
-import com.opencsv.CSVWriter;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.projekt.klinikaStudyBase.dto.MeresDetailDto;
 import com.projekt.klinikaStudyBase.dto.MeresFilterDto;
 import com.projekt.klinikaStudyBase.dto.NewMeresDto;
 import com.projekt.klinikaStudyBase.service.MeresService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/meres")
-@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class MeresEndpoint {
 

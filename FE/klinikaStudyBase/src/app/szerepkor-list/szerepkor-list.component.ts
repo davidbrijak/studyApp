@@ -13,10 +13,12 @@ import {MatPaginator} from "@angular/material/paginator";
 export class SzerepkorListComponent implements OnInit {
 
   title = 'Szerepkörök';
+  isLetezik = false
   deleteSuccess = false;
+  error = 'A szerepkör nem törölhető, mivel már van hozzá rendelve személy. Kérem először a szerepkörhöz rendelt személyeket törölje.'
   message = 'A törlés sikeres volt.';
   ELEMENTDATA: Szerepkor[] = [];
-  displayedColumns: string[] = ['id', 'hivatkozási név', 'megn', 'kif', 'actions'];
+  displayedColumns: string[] = ['hivatkozási név', 'megn', 'kif', 'actions'];
   dataSource = new MatTableDataSource<Szerepkor>(this.ELEMENTDATA);
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -41,6 +43,12 @@ export class SzerepkorListComponent implements OnInit {
     );
   }
 
+  deleteIfNotExistsSzemelyByRole(id: number) {
+    if (!this.isSzemelyExistsBySzerepkor(id)) {
+      this.delete(id)
+    }
+  }
+
   delete(id: number) {
     this.service.delete(id).subscribe(
       () => {
@@ -49,6 +57,15 @@ export class SzerepkorListComponent implements OnInit {
         this.refreshAllUsers()
       }
     );
+  }
+
+  isSzemelyExistsBySzerepkor(id: number) {
+    this.service.hasAnySzemelyExistsBySzerepkor(id).subscribe(
+      (res) => {
+        this.isLetezik = res.valueOf()
+      }
+    );
+    return this.isLetezik;
   }
 
   navigateUj(id: number, isDisabled: boolean) {

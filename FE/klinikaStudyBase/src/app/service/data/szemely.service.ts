@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Szemely} from "../../study/uj-study/uj-study.component";
 import {JogosutsagDetailDto} from "../../jogosultsag/jogosultsag-list.component";
+import {SzemelyFilter} from "../../szemelyek-list/szemelyek-list.component";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,11 @@ export class SzemelyService {
     return this.http.post(
       `http://localhost:8080/api/szemely`,
       szemely)
+  }
+
+  search(filter: SzemelyFilter) {
+    return this.http.post(
+      `http://localhost:8080/api/szemely/search/filter`,
+      filter)
   }
 }

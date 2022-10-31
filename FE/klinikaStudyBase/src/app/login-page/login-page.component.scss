@@ -1,0 +1,11 @@
+@import "../../../styles/colors";
+
+:host {
+::ng-deep .mat-tab-labels {
+div {
+  min-width: 120px;
+  padding: 5px;
+}
+}
+}
+
