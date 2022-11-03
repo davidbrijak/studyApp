@@ -7,22 +7,20 @@ import {JogosutsagDetailDto} from "../../jogosultsag/jogosultsag-list.component"
 })
 export class JogosultsagService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get<JogosutsagDetailDto[]>(`http://localhost:8080/api/jogosultsag/list`)
+    return this.http.get<JogosutsagDetailDto[]>(this.baseUrl + `/api/jogosultsag/list`)
   }
 
   create(jogosultsagDetailDto: JogosutsagDetailDto) {
-    return this.http.post(
-      `http://localhost:8080/api/jogosultsag`,
-      jogosultsagDetailDto)
+    return this.http.post(this.baseUrl +`/api/jogosultsag`, jogosultsagDetailDto)
   }
 
   get(id: number) {
-    return this.http.get<JogosutsagDetailDto>(
-      `http://localhost:8080/api/jogosultsag/${id}`,
-    )
+    return this.http.get<JogosutsagDetailDto>(this.baseUrl + `/api/jogosultsag/${id}`,)
   }
 }

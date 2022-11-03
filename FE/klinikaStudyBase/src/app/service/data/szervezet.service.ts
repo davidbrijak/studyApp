@@ -7,27 +7,24 @@ import {NewSzervezetDto, Szervezet} from "../../szervezet-list/szervezet-list.co
 })
 export class SzervezetService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get<Szervezet[]>(`http://localhost:8080/api/szervezet/list`)
+    return this.http.get<Szervezet[]>(this.baseUrl + `/api/szervezet/list`)
   }
 
   getAllByTipus(id: number) {
-    return this.http.get<Szervezet[]>(`http://localhost:8080/api/szervezet/tipus/list/${id}`)
+    return this.http.get<Szervezet[]>(this.baseUrl + `/api/szervezet/tipus/list/${id}`)
   }
 
   create(ujSzervezet: NewSzervezetDto) {
-    return this.http.post(
-      `http://localhost:8080/api/szervezet`,
-      ujSzervezet)
+    return this.http.post(this.baseUrl + `/api/szervezet`, ujSzervezet)
   }
 
   delete(id: number) {
-    return this.http.delete(
-      `http://localhost:8080/api/szervezet/${id}`,
-    )
+    return this.http.delete(this.baseUrl + `/api/szervezet/${id}`)
   }
-
 }

@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Szemely} from "../../study/uj-study/uj-study.component";
-import {JogosutsagDetailDto} from "../../jogosultsag/jogosultsag-list.component";
 import {SzemelyFilter} from "../../szemelyek-list/szemelyek-list.component";
 
 @Injectable({
@@ -9,22 +8,20 @@ import {SzemelyFilter} from "../../szemelyek-list/szemelyek-list.component";
 })
 export class SzemelyService {
 
+  baseUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get<Szemely[]>(`http://localhost:8080/api/szemely/list`)
+    return this.http.get<Szemely[]>(this.baseUrl + `/api/szemely/list`)
   }
 
   create(szemely: Szemely) {
-    return this.http.post(
-      `http://localhost:8080/api/szemely`,
-      szemely)
+    return this.http.post(this.baseUrl + `/api/szemely`, szemely)
   }
 
   search(filter: SzemelyFilter) {
-    return this.http.post(
-      `http://localhost:8080/api/szemely/search/filter`,
-      filter)
+    return this.http.post(this.baseUrl + `/api/szemely/search/filter`, filter)
   }
 }

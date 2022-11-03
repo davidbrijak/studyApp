@@ -7,19 +7,19 @@ import {FizetesCheckListDto} from "../../kifizetesek/kifizetesek.component";
 })
 export class KifizetesekService {
 
-  constructor(private http: HttpClient) {
-  }
+  baseUrl = "http://localhost:8080";
+
+  constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<FizetesCheckListDto[]>(`http://localhost:8080/api/kifizetesekCheck/list`)
+    return this.http.get<FizetesCheckListDto[]>(this.baseUrl + `/api/kifizetesekCheck/list`)
   }
 
   getById(id: number) {
-    return this.http.get<FizetesCheckListDto[]>(`http://localhost:8080/api/kifizetesekCheck/list/${id}`)
+    return this.http.get<FizetesCheckListDto[]>(this.baseUrl + `/api/kifizetesekCheck/list/${id}`)
   }
 
   change(fizetesCheckListDto:  FizetesCheckListDto[]) {
-    return this.http.post(
-      `http://localhost:8080/api/kifizetesekCheck/change`, fizetesCheckListDto)
+    return this.http.post(this.baseUrl + `/api/kifizetesekCheck/change`, fizetesCheckListDto)
   }
 }

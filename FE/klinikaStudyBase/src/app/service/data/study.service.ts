@@ -8,30 +8,32 @@ import {MeresDetailDto, NewStudyDto} from "../../study/uj-study/uj-study.compone
 })
 export class StudyService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get<StudyDetailDto[]>(`http://localhost:8080/api/study/list`)
+    return this.http.get<StudyDetailDto[]>(this.baseUrl + `/api/study/list`)
   }
 
 
   get(id: number) {
-    return this.http.get<NewStudyDto>(`http://localhost:8080/api/study//${id}`)
+    return this.http.get<NewStudyDto>(this.baseUrl + `/api/study//${id}`)
   }
 
   getMeresekByStudy(id: number) {
-    return this.http.get<MeresDetailDto[]>(`http://localhost:8080/api/meres/list/${id}`)
+    return this.http.get<MeresDetailDto[]>(this.baseUrl + `/api/meres/list/${id}`)
   }
 
   export(id: number) {
     return this.http.get<any>(
-      `http://localhost:8080/api/study/export/${id}`, {responseType: 'arraybuffer' as 'json'})
+      this.baseUrl + `/api/study/export/${id}`, {responseType: 'arraybuffer' as 'json'})
   }
 
   create(newStudy: NewStudyDto) {
     return this.http.post(
-      `http://localhost:8080/api/study`,
+      this.baseUrl + `/api/study`,
       newStudy)
   }
 }

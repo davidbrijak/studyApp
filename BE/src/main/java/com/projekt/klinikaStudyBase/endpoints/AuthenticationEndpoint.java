@@ -1,6 +1,5 @@
 package com.projekt.klinikaStudyBase.endpoints;
 
-import com.projekt.klinikaStudyBase.data.entity.User;
 import com.projekt.klinikaStudyBase.dto.UserCredentialsDto;
 import com.projekt.klinikaStudyBase.dto.UserTokensDto;
 import com.projekt.klinikaStudyBase.exception.KlinkaStutyBaseException;

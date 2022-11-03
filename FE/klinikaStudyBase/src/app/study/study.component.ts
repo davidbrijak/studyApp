@@ -12,7 +12,7 @@ import {MatPaginator} from "@angular/material/paginator";
 })
 export class StudyComponent implements OnInit {
 
- title = 'Studyies'
+ title = 'Studies'
   message = 'A törlés sikeres volt.'
   ELEMENTDATA: StudyDetailDto[] = [];
   displayedColumns: string[] = ['id', 'cim', 'actions']

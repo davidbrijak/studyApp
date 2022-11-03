@@ -5,6 +5,10 @@ import {Szemely} from "../../study/uj-study/uj-study.component";
 import {VizsgalatiModDetailDto} from "../../dto/vizsgalatiModDetailDto";
 import {VizsgalatiModService} from "../../service/data/vizsgalati-mod/vizsgalati-mod.service";
 import {MeresService} from "../../service/data/meres.service";
+import {Szerepkor} from "../../szerepkor-list/szerepkor-list.component";
+import {SzerepkorServiceService} from "../../service/data/szerepkor-service.service";
+import {Subject} from "rxjs";
+import {SzemelyFilter} from "../../szemelyek-list/szemelyek-list.component";
 
 @Component({
   selector: 'app-uj-meres',
@@ -32,13 +36,19 @@ export class UjMeresComponent implements OnInit {
   isEditable = true
   error: string
   isSmthEmpty: boolean
+  szerepkorok: Szerepkor [] = [];
+  vizsgaloOrvosok: Szemely [] = [];
+  monitor: Szemely [] = [];
+  beteg: Szemely [] = [];
+  operator: Szemely [] = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private szemelyService: SzemelyService,
     private vmService: VizsgalatiModService,
-    private meresService: MeresService
+    private meresService: MeresService,
+    private szerepkorService: SzerepkorServiceService
   ) {
   }
 
@@ -47,12 +57,12 @@ export class UjMeresComponent implements OnInit {
     if (this.id != -1) {
       this.isEditable = false
       this.title = 'Meres szerkesztése'
-      this.meresService.get(this.id).subscribe(
-        data => {
-          this.meres = data
-        }
-      )    }
-    this.refreshSzemelyek()
+      this.meresService.get(this.id).subscribe(data => this.meres = data)
+    }
+    this.szerepkorService.getAll().toPromise().then(data => {
+      this.szerepkorok = data
+      this.refreshSzemelyek()
+    })
     this.refreshVms()
     this.meres = new NewMeres(-1, undefined, new Date(), '', false, '',
       undefined,undefined, 0, undefined, undefined)
@@ -64,6 +74,13 @@ export class UjMeresComponent implements OnInit {
         this.szemelyList = response as Szemely[];
       }
     );
+
+    const id = this.szerepkorok.find(sz => sz.hivatkozasiNev === 'VIZSGALO_ORVOS')?.id;
+    // @ts-ignore
+    this.szemelyService.search(new SzemelyFilter(null, [id])).subscribe(
+      // @ts-ignore
+      (data: Szemely[]) => {this.vizsgaloOrvosok = data}
+    )
   }
 
   refreshVms() {

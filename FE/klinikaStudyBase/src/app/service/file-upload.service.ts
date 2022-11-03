@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'http://localhost:8080/document';
+  baseUrl = 'http://localhost:8080/document';
   constructor(private http: HttpClient) { }
   upload(studyId: number, file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
@@ -25,10 +26,10 @@ export class FileUploadService {
     const httpOptions = {
       responseType: 'blob' as 'json'
     };
-    return this.http.get(`http://localhost:8080/document/files/${id}`, httpOptions);
+    return this.http.get(this.baseUrl + `/document/files/${id}`, httpOptions);
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete(`http://localhost:8080/document/files/delete/${id}`,);
+    return this.http.delete(this.baseUrl + `/document/files/delete/${id}`,);
   }
 }

@@ -8,19 +8,19 @@ import {MeresDetailDto} from "../../study/uj-study/uj-study.component";
 })
 export class MeresService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   getMeresekByStudy(id: number) {
-    return this.http.get<MeresDetailDto[]>(`http://localhost:8080/api/meres/list/${id}`)
+    return this.http.get<MeresDetailDto[]>(this.baseUrl + `/api/meres/list/${id}`)
   }
 
   get(id: number) {
-    return this.http.get<NewMeres>(`http://localhost:8080/api/meres/${id}`)
+    return this.http.get<NewMeres>(this.baseUrl + `/api/meres/${id}`)
   }
 
   create(newMeres: NewMeres) {
-    return this.http.post(
-      `http://localhost:8080/api/meres`,
-      newMeres)
+    return this.http.post(this.baseUrl + `/api/meres`, newMeres)
   }}

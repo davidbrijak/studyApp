@@ -7,16 +7,18 @@ import {VizsgalatiModDetailDto} from "../../../dto/vizsgalatiModDetailDto";
 })
 export class VizsgalatiModService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   getAll() {
-    return this.http.get<VizsgalatiModDetailDto[]>(`http://localhost:8080/api/vizsgalatiMod/list`)
+    return this.http.get<VizsgalatiModDetailDto[]>(this.baseUrl + `/api/vizsgalatiMod/list`)
   }
 
   create(newVm: VizsgalatiModDetailDto) {
     return this.http.post(
-      `http://localhost:8080/api/vizsgalatiMod`,
+      this.baseUrl + `/api/vizsgalatiMod`,
       newVm)
   }
 }

@@ -8,29 +8,12 @@ public class KlinkaStutyBaseException extends RuntimeException {
 
         private HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 
-        public KlinkaStutyBaseException(Throwable cause) {
-            super(cause);
-        }
-
         public KlinkaStutyBaseException(String message, HttpStatus httpStatus) {
             super(message);
             this.httpStatus = httpStatus;
         }
 
-        public KlinkaStutyBaseException(String message, Throwable cause, HttpStatus httpStatus) {
-            super(message, cause);
-            this.httpStatus = httpStatus;
-        }
-
         public KlinkaStutyBaseException(String message) {
             super(message);
-        }
-
-        public KlinkaStutyBaseException(String message, Throwable cause) {
-            super(message, cause);
-        }
-
-        public HttpStatus getHttpStatus() {
-            return httpStatus;
         }
 }

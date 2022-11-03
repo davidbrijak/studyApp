@@ -82,7 +82,7 @@ export class SzemelyekListComponent implements OnInit {
 
 export class SzemelyFilter {
   nev: string | null;
-  szerepkorAzonositok: number [];
+  szerepkorAzonositok: number [] |undefined;
 
   constructor(nev: string | null, szerepkorAzonositok: number []) {
     this.nev = nev;

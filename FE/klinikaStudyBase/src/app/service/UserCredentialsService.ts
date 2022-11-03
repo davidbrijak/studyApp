@@ -7,12 +7,14 @@ import {UserCredentialsDto} from "../dto/UserCredentialsDto";
 })
 export class UserCredentialsService {
 
+  baseUrl = "http://localhost:8080";
+
   constructor(private http: HttpClient) {
   }
 
   login(userCredentials: UserCredentialsDto) {
     return this.http.post(
-      `http://localhost:8080/api/authentication/login`,
+      this.baseUrl + `/api/authentication/login`,
       userCredentials)
   }
 }

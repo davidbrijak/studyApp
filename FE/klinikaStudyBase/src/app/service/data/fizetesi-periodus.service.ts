@@ -10,25 +10,23 @@ export class FizetesiPeriodusService {
   constructor(private http: HttpClient) {
   }
 
+  baseUrl = "http://localhost:8080";
+
   getAll() {
-    return this.http.get<FizetesiPeriodus[]>(`http://localhost:8080/api/fizetesiPeriodus/list`)
+    return this.http.get<FizetesiPeriodus[]>(this.baseUrl + `/api/fizetesiPeriodus/list`)
   }
 
   create(ujFizetesiPeriodus: FizetesiPeriodus) {
-    return this.http.post(
-      `http://localhost:8080/api/fizetesiPeriodus`,
-      ujFizetesiPeriodus)
+    return this.http.post(this.baseUrl + `/api/fizetesiPeriodus`, ujFizetesiPeriodus)
   }
 
   get(id: number | undefined) {
-    return this.http.get<FizetesiPeriodus>(
-      `http://localhost:8080/api/fizetesiPeriodus/${id}`,
+    return this.http.get<FizetesiPeriodus>(this.baseUrl + `/api/fizetesiPeriodus/${id}`,
     )
   }
 
   delete(id: number) {
-    return this.http.delete(
-      `http://localhost:8080/api/fizetesiPeriodus/${id}`,
+    return this.http.delete(this.baseUrl + `/api/fizetesiPeriodus/${id}`,
     )
   }
 

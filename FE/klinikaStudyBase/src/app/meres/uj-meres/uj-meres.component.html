@@ -48,7 +48,7 @@
           <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
                   placeholder="Vizsgálatot végző orvos kiválasztása" [(ngModel)]="selected_orvos">
             <option>--Válassza ki a vizsgálatot végző orvost--</option>
-            <option *ngFor="let szemely of szemelyList" [ngValue]="szemely">{{szemely.nev}}</option>
+            <option *ngFor="let szemely of vizsgaloOrvosok" [ngValue]="szemely">{{szemely.nev}}</option>
           </select></td>
       </tr>
 
