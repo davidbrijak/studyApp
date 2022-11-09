@@ -1,5 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -53,6 +56,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -118,4 +122,7 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+
 }
+
