@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-label>{{'Email'}}</mat-label>
+  <mat-form-field appearance="outline">
+    <input matInput type="email" id="email" [placeholder]="'Email'" formControlName="email"
+           required>
+    <i class="fa-regular fa-envelope" matSuffix></i>
+    <mat-error
+      *ngIf="form.get('email')?.hasError('required')">{{'Kötelező mező.'}}</mat-error>
+    <mat-error
+      *ngIf="form.get('email')?.hasError('email')">{{'Kötelező mező.' }}</mat-error>
+  </mat-form-field>
+  <mat-label>{{'Jelszó'}}</mat-label>
+  <mat-form-field appearance="outline">
+    <input
+      #password
+      matInput type="password" id="password" class="password"
+      [placeholder]="''" formControlName="password"
+      required
+    >
+    <i [class]="password.type == 'password' ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"
+       matSuffix
+       (click)="password.type = password.type === 'password' ? 'text' : 'password'"
+    ></i>
+    <mat-error
+      *ngIf="form.get('password')?.hasError('required')">{{'Kötelező mező.'}}</mat-error>
+  </mat-form-field>
+  <app-submit-button (loading)="onSubmitLoading($event)" [disabled]="form.invalid">
+    {{'Login'}}
+  </app-submit-button>
+</form>

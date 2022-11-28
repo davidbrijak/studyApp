@@ -1,0 +1,47 @@
+<H1>{{title}}</H1>
+<div class="container table-responsive">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 data-table">
+
+    <ng-container matColumnDef="szemely">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Személy neve</th>
+      <td mat-cell *matCellDef="let element"> {{element.szemely}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="osszeg">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kifizetendő összeg</th>
+      <td mat-cell *matCellDef="let element"> {{element.osszeg + ' HUF'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="szerepkor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Szerepkör</th>
+      <td mat-cell *matCellDef="let element"> {{element.szerepkor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fizetveBySzervezet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fizetve a megbízó által</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox [(ngModel)]="element.fizetveBySzervezet"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fizetveToSzemely">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fizetve a dolgozónak</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox [(ngModel)]="element.fizetveToSzemely"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef> Actions</th>
+      <mat-cell *matCellDef="let row">
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <button class="btn btn-success" (click)=handleSave(dataSource.data)>Mentés</button>
+
+  <mat-paginator [pageSizeOptions]="[5,10,20]" [pageSize]="5"></mat-paginator>
+</div>

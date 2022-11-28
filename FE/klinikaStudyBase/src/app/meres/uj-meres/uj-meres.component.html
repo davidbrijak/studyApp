@@ -1,0 +1,104 @@
+<app-alert-modal [error]="error" *ngIf="isSmthEmpty" (onClose)="isSmthEmpty = false"></app-alert-modal>
+<H1>{{title}}</H1>
+<div class="container">
+
+  <div *ngIf="id != -1">
+    <button (click)="makeEditable()">{{szerkText}}</button>
+  </div>
+
+  <div class="container table-responsive">
+    <table>
+      <th>Korábbi érték</th>
+      <th>Új érték</th>
+      <tr>
+        <td><label>Feltöltés szám: {{meres.feltoltesSzam}}</label></td>
+        <td>
+          <fieldset class="form-group">
+            <input required="{{meres.id == -1}}" [disabled]="!isEditable" type="text" [(ngModel)]="meres.feltoltesSzam"
+                   class="form-control" name="feltoltesSzam"
+                   required="required">
+          </fieldset>
+        </td>
+      </tr>
+
+      <tr>
+      <tr>
+        <td><label>Vizsgálati mód: {{meres?.vizsgalatiMod?.megnevezes}}</label></td>
+        <td>
+          <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
+                  placeholder="Alany kiválasztása" [(ngModel)]="selectedVizsgalatiMod">
+            <option>--Válassza ki a vizsgálati módot--</option>
+            <option *ngFor="let vm of vizsgalatiModList" [ngValue]="vm">{{vm.megnevezes}}</option>
+          </select></td>
+      </tr>
+
+      <tr>
+        <td><label>Alany: {{meres?.alany?.nev}}</label></td>
+        <td>
+          <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
+                  placeholder="Alany kiválasztása" [(ngModel)]="selectedAlany">
+            <option>--Válassza ki a vizsgált alanyt--</option>
+            <option *ngFor="let szemely of szemelyList" [ngValue]="szemely">{{szemely.nev}}</option>
+          </select></td>
+      </tr>
+
+      <tr>
+        <td>Vizsgálatot végző orvos: {{meres?.vizsgaloOrvos?.nev}}</td>
+        <td>
+          <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
+                  placeholder="Vizsgálatot végző orvos kiválasztása" [(ngModel)]="selected_orvos">
+            <option>--Válassza ki a vizsgálatot végző orvost--</option>
+            <option *ngFor="let szemely of vizsgaloOrvosok" [ngValue]="szemely">{{szemely.nev}}</option>
+          </select></td>
+      </tr>
+
+      <tr>
+        <td>Operátor 1: {{meres?.operator_1?.nev}}</td>
+        <td>
+          <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
+                  placeholder="Operátor 1 kiválasztása" [(ngModel)]="selected_operator_1">
+            <option>--Válassza ki az 1. számú operátort--</option>
+            <option *ngFor="let szemely of szemelyList" [ngValue]="szemely">{{szemely.nev}}</option>
+          </select></td>
+      </tr>
+
+      <tr>
+        <td>Operátor 2: {{meres?.operator_2?.nev}}</td>
+        <td>
+          <select required="{{meres.id == -1}}" [disabled]="!isEditable" class="custom-select"
+                  placeholder="Operátor 2 kiválasztása" [(ngModel)]="selected_operator_2">
+            <option>--Válassza ki az 2. számú operátort--</option>
+            <option *ngFor="let szemely of szemelyList" [ngValue]="szemely">{{szemely.nev}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Megjegyzés: {{meres?.megjegyzes}}</td>
+        <td>
+          <fieldset class="form-group">
+            <input required="{{meres.id == -1}}" [disabled]="!isEditable" type="text" [(ngModel)]="meres.megjegyzes"
+                   class="form-control" name="megjegyzes" required="required">
+          </fieldset>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Mérés dáuma: {{meres.datum === null ? '-' : meres.datum | date: 'yyyy/MM/dd'}}</td>
+        <td><input required="{{meres.id == -1}}" [disabled]="!isEditable" [(ngModel)]="datum" type="date" id="start"
+                   name="trip-start">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Fizetve: {{meres.fizetve ? 'igen' : 'nem'}}</td>
+        <td>
+          <input required="{{meres.id == -1}}" [disabled]="!isEditable" [(ngModel)]="fizetve" type="checkbox">
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+  <button (click)="handleSave(meres)" class="btn btn-success btn-sm">Mentés</button>
+</div>

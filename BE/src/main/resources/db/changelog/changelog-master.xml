@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--default adatok beillesztese adattablakba -->
+    <!--<changeSet author="brijakd" id="insert_fizetesi_periodus_insert_20220227">
+        <preConditions onFail="MARK_RAN">
+                <tableExists tableName="fizetesi_periodus"/>
+        </preConditions>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="0" />
+            <column name="hivatkozasi_nev" value="NEGYED_EVENTE"/>
+            <column name="megnevezes" value="Negyed éves"/>
+        </insert>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="1" />
+            <column name="hivatkozasi_nev" value="FEL_EVENTE"/>
+            <column name="megnevezes" value="Fél éves"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="brijakd" id="szerepkorok_insert_20220227">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="szerepkorok"/>
+        </preConditions>
+        <insert tableName="szerepkorok">
+            <column name="id" value="0" />
+            <column name="hivatkozasi_nev" value="VIZSGALO_ORVOS"/>
+            <column name="szerepkor_megnevezes" value="Vizsgalo orvos"/>
+        </insert>
+        <insert tableName="szerepkorok">
+            <column name="id" value="1" />
+            <column name="hivatkozasi_nev" value="KUTATAS_VEZETO"/>
+            <column name="szerepkor_megnevezes" value="Kutatas vezeto"/>
+        </insert>
+        <insert tableName="szerepkorok">
+            <column name="id" value="2" />
+            <column name="hivatkozasi_nev" value="OPERATOR_1"/>
+            <column name="szerepkor_megnevezes" value="Operator 1"/>
+        </insert>
+        <insert tableName="szerepkorok">
+            <column name="id" value="3" />
+            <column name="hivatkozasi_nev" value="OPERATOR_2"/>
+            <column name="szerepkor_megnevezes" value="Operator 2"/>
+        </insert>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="0" />
+            <column name="hivatkozasi_nev" value="NEGYED_EVENTE"/>
+            <column name="megnevezes" value="Negyed éves"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="brijakd" id="szervezet_tipus_insert_20220227">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="szervezet_tipus"/>
+        </preConditions>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="0" />
+            <column name="hivatkozasi_nev" value="ELJARO_CEG"/>
+            <column name="megnevezes" value="Eljáró cég"/>
+        </insert>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="1" />
+            <column name="hivatkozasi_nev" value="MEGBIZO_CEG"/>
+            <column name="megnevezes" value="Megbízó cég"/>
+        </insert>
+        <insert tableName="fizetesi_periodus">
+            <column name="id" value="2" />
+            <column name="hivatkozasi_nev" value="RESZLEG"/>
+            <column name="megnevezes" value="Részleg"/>
+        </insert>
+    </changeSet>
+    <changeSet author="brijakd" id="insert_fizetesi_periodus_insert_202202272">
+    <insert tableName="szerepkorok">
+        <column name="hivatkozasi_nev" value="OPERATOR_2"/>
+        <column name="szerepkor_megnevezes" value="Operator 2"/>
+    </insert>
+    </changeSet>-->
+</databaseChangeLog>

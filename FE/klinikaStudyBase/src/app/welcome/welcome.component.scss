@@ -1,0 +1,23 @@
+.container{
+  background-color: whitesmoke;
+}
+
+h1 {
+  color: green;
+}
+
+@import '../../styles/variables';
+
+.overlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: $background-backdrop;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,26 @@
+<app-alert-modal [error]="error" *ngIf="isSmthEmpty" (onClose)="isSmthEmpty = false"></app-alert-modal>
+<H1>{{title}}</H1>
+<div class="container">
+  <fieldset class="form-group">
+    <label>Név</label>
+    <input type="text" [(ngModel)]="szervezet.nev" class="form-control" name="nev" required="required">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label>Adószám</label>
+    <input type="text" [(ngModel)]="szervezet.adoszam" class="form-control" name="adoszam" required="required">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label>Cím</label>
+    <input type="text" [(ngModel)]="szervezet.cim" class="form-control" name="cim" required="required">
+  </fieldset>
+
+  <label>Szervezet típus</label><br>
+  <select class="custom-select" placeholder="Szervezet típusok" [(ngModel)]="selectedSzervezetTipus">
+    <option>--Válassza ki a szervezet típusát--</option>
+    <option *ngFor="let szervezetTipus of szervezetTipusList" [ngValue]="szervezetTipus">{{szervezetTipus.hivatkozasiNev}}</option>
+  </select><br>
+
+  <button (click)="handleSave(szervezet)" class="btn btn-success btn-sm">Mentés</button>
+</div>

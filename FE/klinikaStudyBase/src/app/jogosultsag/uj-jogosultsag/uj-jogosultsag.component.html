@@ -1,0 +1,9 @@
+<H1>{{title}}</H1>
+<div class="container">
+  <fieldset class="form-group">
+    <label>Hivatkozási név</label>
+    <input type="text" [(ngModel)]="jogosultsag.jogosultsagNev" class="form-control" name="jogosultsagNev"
+           required="required">
+  </fieldset>
+  <button (click)="handleSave(jogosultsag)" class="btn btn-success btn-sm">Mentés</button>
+</div>
