@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@ng-select/ng-select": "^8.1.1",
-    "ng-multiselect-dropdown": "^0.3.8",
-    "tslib": "^2.4.0"
-  }
-}
